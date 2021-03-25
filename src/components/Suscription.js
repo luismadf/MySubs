@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { openModalAction } from "../actions/suscripcionActions";
 
-const Suscription = () => {
+const Suscription = ({ suscription }) => {
   const dispatch = useDispatch();
+
+  const { name } = suscription;
 
   const openModal = (action) => {
     dispatch(openModalAction(action));
@@ -14,7 +16,7 @@ const Suscription = () => {
       <input type="checkbox" name="" id="" />
       <div className="suscription_info">
         <div className="info_left">
-          <p>Netflix</p>
+          <p>{name}</p>
           <div className="info_left_buttons">
             <button
               className="button small_button purple_button"

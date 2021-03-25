@@ -1,17 +1,26 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
-import { closeModalAction } from "../actions/suscripcionActions";
+import {
+  closeModalAction,
+  addSuscriptionAction,
+} from "../actions/suscripcionActions";
 
 const Modal = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const action = useSelector((state) => state.suscriptions.action);
 
-  console.log(action);
-
-  const closeModal = () => {
+  const closeModal = (suscription) => {
     dispatch(closeModalAction());
+    if (action === "editar") {
+      history.push("/new");
+    } else if (action === "añadir") {
+      dispatch(addSuscriptionAction(suscription));
+      history.push("/main");
+    }
   };
 
   return (

@@ -8,7 +8,6 @@ import Modal from "../components/Modal";
 const Main = () => {
   const activeModal = useSelector((state) => state.suscriptions.modal);
   const suscriptions = useSelector((state) => state.suscriptions.suscriptions);
-  console.log(suscriptions);
 
   return (
     <div className="main_background">

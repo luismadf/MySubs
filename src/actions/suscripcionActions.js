@@ -1,3 +1,5 @@
+import { act } from "react-dom/test-utils";
+import Suscription from "../components/Suscription";
 import {
   ADD_SUSCRIPTION,
   ADD_SUSCRIPTION_SUCCESS,
@@ -8,9 +10,9 @@ import {
 
 export function openModalAction(action) {
   return (dispatch) => {
-    try {
+    if (action.action === "añadir") {
       dispatch(openModalQuestion(action));
-    } catch (error) {}
+    }
   };
 }
 
@@ -29,4 +31,17 @@ export function closeModalAction() {
 
 const closeModal = () => ({
   type: CLOSE_MODAL,
+});
+
+export function addSuscriptionAction(suscription) {
+  return (dispatch) => {
+    try {
+      dispatch(addSuscription(suscription));
+    } catch (error) {}
+  };
+}
+
+const addSuscription = (suscription) => ({
+  type: ADD_SUSCRIPTION,
+  payload: suscription,
 });

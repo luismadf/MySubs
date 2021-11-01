@@ -9,6 +9,7 @@ import Register from "./views/Register";
 import Login from "./views/Login";
 import Main from "./views/Main";
 import NewSuscription from "./views/NewSuscription";
+import Edit from "./views/Edit";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/main" component={Main} />
           <Route exact path="/new" component={NewSuscription} />
+          <Route exact path="/edit/:id" component={Edit} />
         </Switch>
       </Provider>
     </Router>

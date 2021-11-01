@@ -18,6 +18,11 @@
   z-index: 1;
 }
 
+body {
+  position: relative;
+  background-color: #3780f4;
+}
+
 /* a {
   text-decoration: none;
   color: #62319e;
@@ -26,13 +31,14 @@
 /* HEADER */
 
 nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 25px 15px;
   min-height: 10vh;
   color: white;
-  background-color: black;
+  z-index: 10;
 }
 
 nav > i {
@@ -185,12 +191,7 @@ nav h1 > a:visited {
 /* MAIN */
 
 main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
   padding: 0 15px;
-  min-height: 90vh;
 }
 
 /* MAIN */
@@ -200,11 +201,11 @@ main {
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-  border: 2px solid #62319e;
+  border: 2px solid #3780f4;
   border-radius: 8px;
   width: 234px;
   text-decoration: none;
-  color: 62319e;
+  color: #3780f4;
   margin-bottom: 20px;
 }
 
@@ -237,7 +238,7 @@ main {
 }
 
 .purple_button {
-  background-color: #62319e;
+  background-color: #3780f4;
   color: white;
   font-size: 12px;
   text-transform: none;
@@ -249,7 +250,7 @@ main {
 }
 
 .button_active {
-  background-color: #62319e;
+  background-color: #3780f4;
   color: white;
 }
 
@@ -274,61 +275,16 @@ main {
   color: #62319e;
 }
 
-/* HOME */
-
-.home_hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.home_hero .home_hero-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.home_hero .home_hero-title > h2 {
-  font-family: "Oswald", sans-serif;
-  font-size: 40px;
-  font-weight: 400;
-}
-
-.home_hero .home_hero-title > p {
-  font-family: "Slabo 27px", serif;
-  font-size: 40px;
-  font-weight: 400;
-}
-
-.home_hero > p {
-  display: block;
-  width: 70%;
-  margin-top: 60px;
-  text-align: center;
-  font-size: 24px;
-}
-
-.home_buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.home_buttons-link {
-  margin-top: 30px;
-  text-decoration: none;
-  color: #62319e;
-  font-weight: 500;
-}
-
-/* HOME */
-
 /* LOGIN */
 
 .login_main {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  z-index: 2;
   justify-content: center;
 }
 

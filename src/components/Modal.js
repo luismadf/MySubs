@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   closeModalAction,
   addSuscriptionAction,
+  deleteSuscriptionAction,
+  editSuscriptionSuccessAction,
 } from "../actions/suscripcionActions";
 
 const Modal = () => {
@@ -12,13 +14,21 @@ const Modal = () => {
   const history = useHistory();
 
   const action = useSelector((state) => state.suscriptions.action);
+  const activeSuscription = useSelector(
+    (state) => state.suscriptions.activesuscription
+  );
 
   const closeModal = (suscription) => {
     dispatch(closeModalAction());
     if (action === "editar") {
-      history.push("/new");
-    } else if (action === "añadir") {
+      dispatch(editSuscriptionSuccessAction(activeSuscription));
+      history.push(`/main/`);
+    }
+    if (action === "añadir") {
       dispatch(addSuscriptionAction(suscription));
+      history.push("/main");
+    } else if (action === "eliminar") {
+      dispatch(deleteSuscriptionAction(activeSuscription));
       history.push("/main");
     }
   };

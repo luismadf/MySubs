@@ -1,13 +1,24 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { openModalAction } from "../actions/suscripcionActions";
+import {
+  openModalAction,
+  editSuscriptionAction,
+} from "../actions/suscripcionActions";
+import { useHistory } from "react-router-dom";
 
 const Suscription = ({ suscription }) => {
   const dispatch = useDispatch();
 
-  const { name } = suscription;
+  const history = useHistory();
+
+  /*  const { name } = suscription; */
 
   const openModal = (action) => {
+    if (action.action === "editar") {
+      dispatch(editSuscriptionAction(suscription));
+      history.push(`/edit/${suscription.id}`);
+      return;
+    }
     dispatch(openModalAction(action));
   };
 
@@ -16,17 +27,17 @@ const Suscription = ({ suscription }) => {
       <input type="checkbox" name="" id="" />
       <div className="suscription_info">
         <div className="info_left">
-          <p>{name}</p>
+          <p>{suscription.name}</p>
           <div className="info_left_buttons">
             <button
               className="button small_button purple_button"
-              onClick={() => openModal({ action: "editar" })}
+              onClick={() => openModal({ action: "editar", suscription })}
             >
               Editar
             </button>
             <button
               className="button small_button red_button"
-              onClick={() => openModal({ action: "eliminar" })}
+              onClick={() => openModal({ action: "eliminar", suscription })}
             >
               Eliminar
             </button>

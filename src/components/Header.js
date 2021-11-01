@@ -1,23 +1,17 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
+import arrow from "../img/Arrow2.svg";
 
 const Header = () => {
   const history = useHistory();
 
   const handleClick = () => {
-    console.log("Funciona");
     history.goBack();
   };
 
   return (
     <nav>
-      <button
-        className="not_button"
-        type="submit"
-        onClick={() => handleClick()}
-      >
-        <i class="fas fa-long-arrow-alt-left"></i>
-      </button>
+      <img src={arrow} alt="Go back" onClick={() => handleClick()} />
       <h1 className="title_header">
         <Link to={"/"}>MySubs</Link>
       </h1>

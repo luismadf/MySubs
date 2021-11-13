@@ -1,0 +1,6 @@
+module Pods_MySubstwo_MySubstwoTests {
+  umbrella header "Pods-MySubstwo-MySubstwoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

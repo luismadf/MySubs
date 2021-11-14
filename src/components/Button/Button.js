@@ -2,10 +2,10 @@ import React from "react";
 import { Text, TouchableHighlight, StyleSheet } from "react-native";
 import { Colors, textStyles } from "../../assets/styles";
 
-const Button = ({ text }) => {
+const Button = ({ text, style }) => {
   return (
     <>
-      <TouchableHighlight style={styles.button}>
+      <TouchableHighlight style={[styles.button, { style }]}>
         <Text style={[styles.text, textStyles.p]}>{text}</Text>
       </TouchableHighlight>
     </>

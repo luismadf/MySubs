@@ -1,0 +1,6 @@
+module Pods_MySubstwo {
+  umbrella header "Pods-MySubstwo-umbrella.h"
+
+  export *
+  module * { export * }
+}
